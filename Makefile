@@ -62,25 +62,32 @@ SRC = ft_memset.c \
 	  ft_lstinser.c \
 	  ft_lstlen.c \
 	  ft_atoi_base.c \
-	  ft_lstshift.c
+	  ft_lstshift.c \
+	  ft_boardset.c \
+	  ft_boardprint.c
 
 OBJ = $(SRC:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
+	@echo "\0033[4;32mAll green !"
 
 %.o: %.c
-	gcc -c $^ $(FLAGS)
+	@gcc -c $^ $(FLAGS)
 
 $(NAME): $(OBJ)
-	ar rc $@ $^
-	ranlib $(NAME)
+	@ar rc $@ $^
+	@ranlib $(NAME)
+	@echo "\0033[1;34m %.o \0033[0;32m[Create]"
+	@echo "\0033[1;34m Libft.a \0033[0;32m[Create]"
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
+	@echo "\0033[1;34m %.o \0033[0;31m[Delete]"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "\0033[1;34m libft.a \0033[0;31m[Delete]"
 
 re: fclean all

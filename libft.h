@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2015/12/07 19:01:21 by gsimeon          ###   ########.fr       */
+/*   Updated: 2015/12/20 02:07:05 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,7 @@ size_t				ft_lstinser(t_list **lst, t_list *src, size_t n);
 size_t				ft_lstlen(t_list *lst);
 size_t				ft_atoi_base(const char *str, int base);
 t_list				*ft_lstshift(t_list **lst);
+char				**ft_boardset(int x, int y, char c);
+void				ft_boardprint(char **tab, int x, int y);
 
 #endif
