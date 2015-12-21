@@ -20,6 +20,8 @@ char		**ft_boardset(int x, int y, char c)
 
 	j = 0;
 	rslt = (char**)malloc((sizeof(char*) * y) + (x * y));
+	if (!rslt)
+		return (NULL);
 	while (j < y)
 	{
 		i = 0;
