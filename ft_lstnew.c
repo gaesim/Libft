@@ -28,7 +28,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		lst->content = NULL;
 	else
 	{
-		lst->content = (void *)malloc(sizeof(lst->content_size));
+		lst->content = (void *)malloc(sizeof(void) * lst->content_size);
 		if (!lst->content)
 		{
 			ft_memdel((void**)&lst);
