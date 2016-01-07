@@ -77,6 +77,7 @@ all: $(NAME)
 	@echo "		\0033[1;30m[All OK]\0033[1;37m"
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
+	@mkdir -p $(OBJDIR)
 	@gcc -c $^ $(FLAGS) $(INC) -o $@
 
 $(NAME): $(OBJ)
