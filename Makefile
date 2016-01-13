@@ -1,84 +1,20 @@
-FCT = ft_memset \
-	  ft_bzero \
-	  ft_memcpy \
-	  ft_memccpy \
-	  ft_memmove \
-	  ft_memchr \
-	  ft_memcmp \
-	  ft_strlen \
-	  ft_strdup \
-	  ft_strcpy \
-	  ft_strncpy \
-	  ft_strcat \
-	  ft_strncat \
-	  ft_strlcat \
-	  ft_strchr \
-	  ft_strrchr \
-	  ft_strstr \
-	  ft_strnstr \
-	  ft_strcmp \
-	  ft_strncmp \
-	  ft_atoi \
-	  ft_isalpha \
-	  ft_isdigit \
-	  ft_isalnum \
-	  ft_isascii \
-	  ft_isprint \
-	  ft_toupper \
-	  ft_tolower \
-	  ft_memalloc \
-	  ft_memdel \
-	  ft_strnew \
-	  ft_strdel \
-	  ft_strclr \
-	  ft_striter \
-	  ft_striteri \
-	  ft_strmap \
-	  ft_strmapi \
-	  ft_strequ \
-	  ft_strnequ \
-	  ft_strsub \
-	  ft_strjoin \
-	  ft_strtrim \
-	  ft_strsplit \
-	  ft_itoa \
-	  ft_putchar \
-	  ft_putstr \
-	  ft_putendl \
-	  ft_putnbr \
-	  ft_putchar_fd \
-	  ft_putstr_fd \
-	  ft_putendl_fd \
-	  ft_putnbr_fd \
-	  ft_lstnew \
-	  ft_lstdelone \
-	  ft_lstdel \
-	  ft_lstadd \
-	  ft_lstiter \
-	  ft_lstmap \
-	  ft_lstend \
-	  ft_lstinser \
-	  ft_lstlen \
-	  ft_atoi_base \
-	  ft_lstshift \
-	  ft_boardset \
-	  ft_boardprint
-
 NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
-OBJDIR = ./obj/
-SRCDIR = ./src/
+OBJDIR = ./obj
+SRCDIR = ./src
 INCDIR = ./includes/
-SRC = $(FCT:%=$(SRCDIR)%.c)
-OBJ = $(FCT:%=$(OBJDIR)%.o)
+FCT = $(shell find $(SRCDIR) | grep "\.c" | cut -d / -f 3-4 | cut -d . -f 1)
+SRC = $(FCT:%=$(SRCDIR)/%.c)
+OBJ = $(FCT:%=$(OBJDIR)/%.o)
 INC = $(INCDIR:%=-I %)
 
 all: $(NAME)
 	@echo "		\0033[1;30m[All OK]\0033[1;37m"
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
+$(OBJ):
 	@mkdir -p $(OBJDIR)
-	@gcc -c $^ $(FLAGS) $(INC) -o $@
+	@(cd $(OBJDIR) ; mkdir -p $(shell find $(SRCDIR) | grep -v "\.c" | cut -d / -f 3))
+	@gcc -c $(SRCDIR)/$(shell echo $@ | cut -d / -f 2-3 | cut -d . -f 1).c $(FLAGS) $(INC) -o $@
 
 $(NAME): $(OBJ)
 	@ar rc $@ $^
