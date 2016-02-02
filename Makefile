@@ -9,7 +9,7 @@ OBJ = $(FCT:%=$(OBJDIR)/%.o)
 INC = $(INCDIR:%=-I %)
 
 all: $(NAME)
-	@echo "		\0033[1;30m[All OK]\0033[1;37m"
+	@echo "		\0033[1;30m[Libft OK]\0033[1;37m"
 
 $(OBJ):
 	@mkdir -p $(OBJDIR)
