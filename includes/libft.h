@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/01/13 18:17:55 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/02/02 15:43:05 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,10 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				**ft_boardset(int x, int y, char c);
+int					ft_atoi(const char *str);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
+int					ft_isalpha(int c);
 
 /*
 **							LIST USAGE
@@ -96,20 +100,22 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_boardprint(char **tab, int x, int y);
+int					ft_isprint(int c);
+
+/*
+**							INTEGER USAGE
+*/
+
+char				*ft_itoa(int n);
+int					ft_isdigit(int c);
+int					ft_pwr(int n, int p);
 
 /*
 **							OTHER USAGE
 */
 
-int					ft_atoi(const char *str);
-char				*ft_itoa(int n);
 size_t				ft_atoi_base(const char *str, int base);
-int					ft_isalpha(int c);
-int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
-int					ft_isprint(int c);
-int					ft_toupper(int c);
-int					ft_tolower(int c);
 
 #endif
