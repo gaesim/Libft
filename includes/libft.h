@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/02/02 15:43:05 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/02/23 18:07:52 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <wchar.h>
 
 typedef struct		s_list
 {
@@ -71,6 +72,7 @@ int					ft_atoi(const char *str);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isalpha(int c);
+char				*ft_wtoc(wchar_t w);
 
 /*
 **							LIST USAGE

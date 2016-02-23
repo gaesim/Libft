@@ -9,16 +9,15 @@ OBJ = $(FCT:%=$(OBJDIR)/%.o)
 INC = $(INCDIR:%=-I %)
 
 all: $(NAME)
-	@echo "\0033[1;34m Libft		\0033[1;30m[Libft OK]\0033[1;37m"
+	@echo "\0033[1;34m Libft		\0033[1;30m[All OK]\0033[1;37m"
 
-$(OBJ):
+$(OBJ):$(SRC)
 	@mkdir -p $(OBJDIR)
 	@(cd $(OBJDIR) ; mkdir -p $(shell find $(SRCDIR) | grep -v "\.c" | cut -d / -f 3))
 	@gcc -c $(SRCDIR)/$(shell echo $@ | cut -d / -f 2-3 | cut -d . -f 1).c $(FLAGS) $(INC) -o $@
 
 $(NAME): $(OBJ)
-	@ar rc $@ $^
-	@ranlib $(NAME)
+	@ar rcus $@ $^
 	@echo "\0033[1;34m %.o 		\0033[0;32m[Create]"
 	@echo "\0033[1;34m Libft.a 	\0033[0;32m[Create]\0033[1;37m"
 
