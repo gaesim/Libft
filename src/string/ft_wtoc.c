@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:40:41 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/02/23 18:07:22 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/02/24 09:12:38 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_wtoc(wchar_t w)
 
 	n = 3;
 	ft_bzero((void*)str, 5);
+	if ((w > 55295 && w < 57344) || w > 1114111)
+		return (NULL);
 	if (!(w >> 7))
 		str[n] = (unsigned char)(w & 127);
 	else

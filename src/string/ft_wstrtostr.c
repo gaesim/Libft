@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 05:01:17 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/02/24 05:11:30 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/02/24 09:15:26 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ char	*ft_wstrtostr(wchar_t *str)
 	while (*str)
 	{
 		tmp1 = ft_wtoc(*str);
+		if (tmp1 == NULL)
+		{
+			ft_strdel(&out);
+			return (NULL);
+		}
 		tmp2 = ft_strjoin(out, tmp1);
 		ft_strdel(&tmp1);
 		ft_strdel(&out);
