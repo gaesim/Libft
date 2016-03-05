@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/02/24 05:13:04 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/03/05 19:27:59 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int					ft_tolower(int c);
 int					ft_isalpha(int c);
 char				*ft_wtoc(wchar_t w);
 char				*ft_wstrtostr(wchar_t *str);
+void				ft_strtoupper(char *str);
 
 /*
 **							LIST USAGE
