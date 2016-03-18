@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 15:17:20 by gsimeon           #+#    #+#             */
-/*   Updated: 2015/11/28 23:45:42 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/03/18 12:30:32 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t	len;
 
 	len = 0;
-	while (*s)
-	{
+	while (s[len])
 		len++;
-		s++;
-	}
 	return (len);
 }
