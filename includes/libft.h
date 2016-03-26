@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/03/26 23:58:54 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/03/27 00:07:00 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_boardprint(char **tab, int x, int y);
 int					ft_isprint(int c);
+int					ft_gnl(int const fd, char **line);
+int					ft_printf(const char *str, ...);
 
 /*
 **							INTEGER USAGE
@@ -129,9 +131,8 @@ int					ft_isascii(int c);
 **							PRINTF USAGE
 */
 
-int		pf_solve_flags(char **src, int *width, int *precision, va_list *ap);
-char	*pf_apply_flags(char **str, void *ptr, va_list *ap);
-char	*pf_itoa(void *ptr, char output, int flags);
-int		ft_printf(const char *str, ...);
+int					pf_solve_flags(char **src, int *width, int *precision, va_list *ap);
+char				*pf_apply_flags(char **str, void *ptr, va_list *ap);
+char				*pf_itoa(void *ptr, char output, int flags);
 
 #endif
