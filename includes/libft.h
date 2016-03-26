@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/03/05 19:27:59 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/03/26 23:58:54 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 # include <wchar.h>
+# include <stdarg.h>
 
 typedef struct		s_list
 {
@@ -97,10 +98,12 @@ t_list				*ft_lstshift(t_list **lst);
 
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
+void				ft_putnstr(char const *s, size_t n);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
+void				ft_putnstr_fd(char const *s, size_t l, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_boardprint(char **tab, int x, int y);
@@ -121,5 +124,14 @@ int					ft_pwr(int n, int p);
 size_t				ft_atoi_base(const char *str, int base);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
+
+/*
+**							PRINTF USAGE
+*/
+
+int		pf_solve_flags(char **src, int *width, int *precision, va_list *ap);
+char	*pf_apply_flags(char **str, void *ptr, va_list *ap);
+char	*pf_itoa(void *ptr, char output, int flags);
+int		ft_printf(const char *str, ...);
 
 #endif
