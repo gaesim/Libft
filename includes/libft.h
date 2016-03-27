@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/03/27 00:07:00 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/03/27 10:04:02 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ int					ft_pwr(int n, int p);
 size_t				ft_atoi_base(const char *str, int base);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
+int					ft_isspace(char	s);
 
 /*
 **							PRINTF USAGE
