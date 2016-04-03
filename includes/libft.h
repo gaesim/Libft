@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/03/28 20:53:22 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/03/30 19:44:48 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ int					ft_printf(const char *str, ...);
 
 char				*ft_itoa(int n);
 int					ft_isdigit(int c);
+int					ft_isnumber(int c);
 int					ft_pwr(int n, int p);
 int					**ft_intboardset(int x, int y, int c);
 
