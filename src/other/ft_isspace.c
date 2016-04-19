@@ -6,13 +6,13 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 10:00:21 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/03/27 10:03:45 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/04/19 23:07:15 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isspace(char	s)
+int		ft_isspace(char s)
 {
 	if ((s >= 9 && s <= 13) || s == ' ')
 		return (1);
