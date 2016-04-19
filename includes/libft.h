@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/03/30 19:44:48 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/04/19 21:11:41 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,14 @@ void				ft_swap(int *a, int* b);
 **							PRINTF USAGE
 */
 
-int					pf_solve_flags(char **src, int *width, int *precision, va_list *ap);
+int					pf_solve_flags(char **src, int *w, int *p, va_list *ap);
 char				*pf_apply_flags(char **str, void *ptr, va_list *ap);
 char				*pf_itoa(void *ptr, char output, int flags);
+
+/*
+**							MATRIX USAGE
+*/
+
+void				ft_mtrx_mult(float **mat1, float **mat2, float **mat, int n);
 
 #endif
