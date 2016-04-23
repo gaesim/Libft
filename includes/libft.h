@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/04/19 21:11:41 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/04/24 01:33:57 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ size_t				ft_atoi_base(const char *str, int base);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isspace(char	s);
-void				ft_swap(int *a, int* b);
+void				ft_swap(int *a, int *b);
 
 /*
 **							PRINTF USAGE
@@ -143,6 +143,6 @@ char				*pf_itoa(void *ptr, char output, int flags);
 **							MATRIX USAGE
 */
 
-void				ft_mtrx_mult(float **mat1, float **mat2, float **mat, int n);
+void				ft_mtrx_mult(float **m1, float **m2, float **m, int n);
 
 #endif
