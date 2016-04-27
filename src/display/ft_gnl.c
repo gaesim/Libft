@@ -6,14 +6,14 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 00:06:16 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/03/27 00:06:24 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/04/24 03:12:17 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 #include <stdlib.h>
-#define BUFF_SIZE 1
+#define BUFF_SIZE 1024
 
 static int		gnl_search(char **line, char *tmp, t_list *cl, int rd)
 {

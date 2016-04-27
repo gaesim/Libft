@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/04/24 01:33:57 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/04/24 07:06:08 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ char				*pf_itoa(void *ptr, char output, int flags);
 **							MATRIX USAGE
 */
 
-void				ft_mtrx_mult(float **m1, float **m2, float **m, int n);
+void				ft_mtrx_mult(float m1[3][3], float m2[3][3], float m[3][3], int n);
+void				ft_mat_rxyz(float rx, float ry, float rz, float m[3][3]);
 
 #endif
