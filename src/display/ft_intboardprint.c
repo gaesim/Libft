@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mtrx_mult.c                                     :+:      :+:    :+:   */
+/*   ft_intboardprint.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/19 20:30:23 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/04/30 00:03:05 by gsimeon          ###   ########.fr       */
+/*   Created: 2016/05/01 22:35:31 by gsimeon           #+#    #+#             */
+/*   Updated: 2016/05/01 22:40:16 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_mtrx_mult(float m1[3][3], float m2[3][3], float m[3][3], int n)
+void		ft_intboardprint(int **tab, int x, int y)
 {
-	int		x;
-	int		y;
 	int		i;
+	int		j;
 
-	y = 0;
-	while (n > y)
+	j = 0;
+	while (j < y)
 	{
-		x = 0;
-		while (n > x)
+		i = 0;
+		while (i < x)
 		{
-			i = n + 1;
-			while (--i)
-				m[y][x] = m[y][x] + m1[y][n - i] * m2[n - i][x];
-			x++;
+			ft_putnbr(tab[j][i]);
+			ft_putstr("  ");
+			i++;
 		}
-		y++;
+		j++;
+		ft_putchar('\n');
 	}
 }

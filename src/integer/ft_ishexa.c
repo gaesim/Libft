@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mtrx_mult.c                                     :+:      :+:    :+:   */
+/*   ft_ishexa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/19 20:30:23 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/04/30 00:03:05 by gsimeon          ###   ########.fr       */
+/*   Created: 2016/05/01 20:59:06 by gsimeon           #+#    #+#             */
+/*   Updated: 2016/05/02 01:10:53 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_mtrx_mult(float m1[3][3], float m2[3][3], float m[3][3], int n)
+int		ft_ishexa(char *s)
 {
-	int		x;
-	int		y;
-	int		i;
+	int		len;
 
-	y = 0;
-	while (n > y)
+	len = 0;
+	if (s)
 	{
-		x = 0;
-		while (n > x)
+		if (s[0] == '0' && (*(s + 1) == 'x' || *(s + 1) == 'X'))
 		{
-			i = n + 1;
-			while (--i)
-				m[y][x] = m[y][x] + m1[y][n - i] * m2[n - i][x];
-			x++;
+			len += 2;
+			s += 2;
+			while (*s && (ft_isdigit(*s) || ft_strchr("abcdefABCDEF", (int)*s)))
+			{
+				len++;
+				s++;
+			}
 		}
-		y++;
 	}
+	return (len);
 }

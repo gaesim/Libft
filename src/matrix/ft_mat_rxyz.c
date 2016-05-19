@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 03:03:06 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/04/25 22:30:11 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/05/12 16:47:24 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void			ft_mat_rxyz(float rx, float ry, float rz, float m[3][3])
 	ft_mat_blank(m3);
 	ft_mat_rotx(m1, rx);
 	ft_mat_roty(m2, ry);
-	ft_mtrx_mult(m1, m2, m3, 3);
+	ft_mtrx_mult(m2, m1, m3, 3);
 	ft_mat_rotz(m1, rz);
 	ft_mtrx_mult(m3, m1, m, 3);
 }

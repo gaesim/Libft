@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mtrx_mult.c                                     :+:      :+:    :+:   */
+/*   ft_input.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/19 20:30:23 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/04/30 00:03:05 by gsimeon          ###   ########.fr       */
+/*   Created: 2016/05/18 19:29:07 by gsimeon           #+#    #+#             */
+/*   Updated: 2016/05/18 20:35:34 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_mtrx_mult(float m1[3][3], float m2[3][3], float m[3][3], int n)
+char	*ft_input(const char *str)
 {
-	int		x;
-	int		y;
-	int		i;
+	size_t	len;
 
-	y = 0;
-	while (n > y)
+	len = ft_strlen(str);
+	while (len--)
 	{
-		x = 0;
-		while (n > x)
-		{
-			i = n + 1;
-			while (--i)
-				m[y][x] = m[y][x] + m1[y][n - i] * m2[n - i][x];
-			x++;
-		}
-		y++;
+		if (*(str + len) == '/' && len && *(str + len - 1) != '\\')
+			return (ft_strdup(str + len + 1));
 	}
+	return (ft_strdup(str));
 }

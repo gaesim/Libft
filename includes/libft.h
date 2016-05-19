@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/04/24 07:06:08 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/05/18 20:32:52 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,14 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				**ft_boardset(int x, int y, char c);
 int					ft_atoi(const char *str);
+int					ft_atoi_b(const char *str, int base);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isalpha(int c);
 char				*ft_wtoc(wchar_t w);
 char				*ft_wstrtostr(wchar_t *str);
 void				ft_strtoupper(char *str);
+char				*ft_input(const char *str);
 
 /*
 **							LIST USAGE
@@ -107,6 +109,7 @@ void				ft_putnstr_fd(char const *s, size_t l, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_boardprint(char **tab, int x, int y);
+void				ft_intboardprint(int **tab, int x, int y);
 int					ft_isprint(int c);
 int					ft_gnl(int const fd, char **line);
 int					ft_printf(const char *str, ...);
@@ -117,7 +120,8 @@ int					ft_printf(const char *str, ...);
 
 char				*ft_itoa(int n);
 int					ft_isdigit(int c);
-int					ft_isnumber(int c);
+int					ft_isnumber(char *s);
+int					ft_ishexa(char *s);
 int					ft_pwr(int n, int p);
 int					**ft_intboardset(int x, int y, int c);
 
@@ -143,7 +147,9 @@ char				*pf_itoa(void *ptr, char output, int flags);
 **							MATRIX USAGE
 */
 
-void				ft_mtrx_mult(float m1[3][3], float m2[3][3], float m[3][3], int n);
+void				ft_mtrx_mult(float m1[3][3], float m2[3][3],
+		float m[3][3], int n);
+void				ft_mtrx_vector_mult(float m[3][3], int *x, int *y, int *z);
 void				ft_mat_rxyz(float rx, float ry, float rz, float m[3][3]);
 
 #endif

@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mtrx_mult.c                                     :+:      :+:    :+:   */
+/*   ft_mtrx_vector_mult.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/19 20:30:23 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/04/30 00:03:05 by gsimeon          ###   ########.fr       */
+/*   Created: 2016/04/29 23:48:55 by gsimeon           #+#    #+#             */
+/*   Updated: 2016/04/30 00:13:06 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_mtrx_mult(float m1[3][3], float m2[3][3], float m[3][3], int n)
+void	ft_mtrx_vector_mult(float m[3][3], int *x, int *y, int *z)
 {
-	int		x;
-	int		y;
-	int		i;
+	int	i;
+	int	j;
+	int	k;
 
-	y = 0;
-	while (n > y)
-	{
-		x = 0;
-		while (n > x)
-		{
-			i = n + 1;
-			while (--i)
-				m[y][x] = m[y][x] + m1[y][n - i] * m2[n - i][x];
-			x++;
-		}
-		y++;
-	}
+	i = *x;
+	j = *y;
+	k = *z;
+	*x = i * m[0][0] + j * m[0][1] + k * m[0][2];
+	*y = i * m[1][0] + j * m[1][1] + k * m[1][2];
+	*z = i * m[2][0] + j * m[2][1] + k * m[2][2];
 }
