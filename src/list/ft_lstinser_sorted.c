@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstinser_sorted.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 17:13:05 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/10/12 15:49:43 by gsimeon          ###   ########.fr       */
+/*   Created: 2016/08/17 18:47:10 by gsimeon           #+#    #+#             */
+/*   Updated: 2016/09/02 01:28:30 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_lstinser_sorted(t_list **lst, t_list *elem,
+		int (*f)(t_list *lst, t_list *elem))
 {
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	if (*lst && *lst != elem && f(*lst, elem))
+		return (ft_lstinser_sorted(&((*lst)->next), elem, f));
+	if (elem && elem != *lst)
+		elem->next = *lst;
+	*lst = elem;
+	return (0);
 }

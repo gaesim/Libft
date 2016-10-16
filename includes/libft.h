@@ -6,7 +6,7 @@
 /*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/08/02 19:10:23 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/08/17 19:05:08 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstend(t_list **lst, t_list *new);
 size_t				ft_lstinser(t_list **lst, t_list *src, size_t n);
+int					ft_lstinser_sorted(t_list **lst, t_list *elem,
+		int (*f)(t_list *lst, t_list *elem));
 size_t				ft_lstlen(t_list *lst);
 t_list				*ft_lstshift(t_list **lst);
 
@@ -110,9 +112,7 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_boardprint(char **tab, int x, int y);
 void				ft_intboardprint(int **tab, int x, int y);
-int					ft_isprint(int c);
 int					ft_gnl(int const fd, char **line);
-int					ft_printf(const char *str, ...);
 
 /*
 **							INTEGER USAGE
@@ -134,11 +134,13 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isspace(char	s);
 void				ft_swap(int *a, int *b);
+int					ft_isprint(int c);
 
 /*
 **							PRINTF USAGE
 */
 
+int					ft_printf(const char *str, ...);
 int					pf_solve_flags(char **src, int *w, int *p, va_list *ap);
 char				*pf_apply_flags(char **str, void *ptr, va_list *ap);
 char				*pf_itoa(void *ptr, char output, int flags);

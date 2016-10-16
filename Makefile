@@ -1,32 +1,180 @@
+## Name of Project
+
 NAME = libft.a
+
+## Color for compilating (blue)
+
+COLOR = \0033[1;34m
+
+## List of Directories
+
+INC_DIR = includes
+OBJ_DIR = obj
+SRC_DIR = src
+
+DISPLAY_DIR = display
+PRINTF_DIR = printf
+MEMORY_DIR = memory
+STRING_DIR = string
+INTEGER_DIR = integer
+LIST_DIR = list
+MATRIX_DIR = matrix
+OTHER_DIR = other
+
+## Compilating Utilities
+
 FLAGS = -Wall -Wextra -Werror
-OBJDIR = ./obj
-SRCDIR = ./src
-INCDIR = ./includes/
-FCT = $(shell find $(SRCDIR) | grep "\.c" | cut -d / -f 3-4 | cut -d . -f 1)
-SRC = $(FCT:%=$(SRCDIR)/%.c)
-OBJ = $(FCT:%=$(OBJDIR)/%.o)
-INC = $(INCDIR:%=-I %)
+INC = $(INC_DIR:%=-I ./%)
+CC = clang $(FLAGS) $(INC)
+
+## List of Functions
+
+DISPLAY_FT = ft_putchar \
+			ft_putchar_fd \
+			ft_putstr \
+			ft_putstr_fd \
+			ft_putnstr \
+			ft_putnstr_fd \
+			ft_putendl \
+			ft_putendl_fd \
+			ft_putnbr \
+			ft_putnbr_fd \
+			ft_boardprint \
+			ft_intboardprint \
+			ft_gnl
+
+PRINTF_FT = ft_printf \
+			pf_solve_flags \
+			pf_apply_flags \
+			pf_itoa
+
+MEMORY_FT = ft_memalloc \
+			ft_memdel \
+			ft_memset \
+			ft_bzero \
+			ft_memcpy \
+			ft_memccpy \
+			ft_memmove \
+			ft_memchr \
+			ft_memcmp
+
+STRING_FT = ft_strlen \
+			ft_strdup \
+			ft_strcpy \
+			ft_strncpy \
+			ft_strcat \
+			ft_strncat \
+			ft_strlcat \
+			ft_strchr \
+			ft_strrchr \
+			ft_strstr \
+			ft_strnstr \
+			ft_strcmp \
+			ft_strncmp \
+			ft_strnew \
+			ft_strdel \
+			ft_strclr \
+			ft_striter \
+			ft_striteri \
+			ft_strmap \
+			ft_strmapi \
+			ft_strequ \
+			ft_strnequ \
+			ft_strsub \
+			ft_strjoin \
+			ft_strtrim \
+			ft_strsplit \
+			ft_boardset \
+			ft_atoi \
+			ft_atoi_b \
+			ft_toupper \
+			ft_tolower \
+			ft_isalpha \
+			ft_wtoc \
+			ft_wstrtostr \
+			ft_strtoupper \
+			ft_input
+
+INTEGER_FT = ft_itoa \
+			ft_isdigit \
+			ft_isnumber \
+			ft_ishexa \
+			ft_pwr \
+			ft_intboardset
+
+LIST_FT = ft_lstnew \
+		ft_lstdelone \
+		ft_lstdel \
+		ft_lstadd \
+		ft_lstiter \
+		ft_lstmap \
+		ft_lstend \
+		ft_lstinser \
+		ft_lstinser_sorted \
+		ft_lstlen \
+		ft_lstshift
+
+MATRIX_FT = ft_mtrx_mult \
+			ft_mtrx_vector_mult \
+			ft_mat_rxyz
+
+OTHER_FT = ft_atoi_base \
+			ft_isalnum \
+			ft_isascii \
+			ft_isspace \
+			ft_swap \
+			ft_isprint
+
+## List of Object Utilities
+
+OBJ = $(DISPLAY_FT:%=$(DISPLAY_DIR)/%.o) \
+		$(PRINTF_FT:%=$(PRINTF_DIR)/%.o) \
+		$(MEMORY_FT:%=$(MEMORY_DIR)/%.o) \
+		$(STRING_FT:%=$(STRING_DIR)/%.o) \
+		$(INTEGER_FT:%=$(INTEGER_DIR)/%.o) \
+		$(LIST_FT:%=$(LIST_DIR)/%.o) \
+		$(MATRIX_FT:%=$(MATRIX_DIR)/%.o) \
+		$(OTHER_FT:%=$(OTHER_DIR)/%.o)
+
+OBJ_DIRS = $(DISPLAY_DIR) \
+			$(PRINTF_DIR) \
+			$(MEMORY_DIR) \
+			$(STRING_DIR) \
+			$(INTEGER_DIR) \
+			$(LIST_DIR) \
+			$(MATRIX_DIR) \
+			$(OTHER_DIR)
+
+
+## Rules of Makefile
 
 all: $(NAME)
-	@echo "\0033[1;34m Libft		\0033[1;30m[All OK]\0033[1;37m"
+	@echo "$(COLOR)Libft\t\t\0033[1;30m[All OK]\0033[1;37m"
 
-$(OBJ):$(SRC)
-	@mkdir -p $(OBJDIR)
-	@(cd $(OBJDIR) ; mkdir -p $(shell find $(SRCDIR) | grep -v "\.c" | cut -d / -f 3))
-	@gcc -c $(SRCDIR)/$(shell echo $@ | cut -d / -f 2-3 | cut -d . -f 1).c $(FLAGS) $(INC) -o $@
+$(OBJ_DIRS:%=$(OBJ_DIR)/%):
+	@mkdir -p $@
+	@echo "$(COLOR)Creating    : \0033[0;32m$@\0033[1;37m"
 
-$(NAME): $(OBJ)
-	@ar rcus $@ $^
-	@echo "\0033[1;34m %.o 		\0033[0;32m[Create]"
-	@echo "\0033[1;34m Libft.a 	\0033[0;32m[Create]\0033[1;37m"
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIRS:%=$(OBJ_DIR)/%)
+	@$(CC) -c $< -o $@
+	@echo "$(COLOR)Compilating : \0033[0;32m$(@:$(OBJ_DIR)/%=%)\0033[1;37m"
+
+$(NAME): $(OBJ:%=$(OBJ_DIR)/%)
+	@echo "$(COLOR)Objects\t\t\0033[0;32m[Created]\0033[1;37m"
+	@ar rcs $@ $^
+	@echo "$(COLOR)$(NAME)\t\t\0033[0;32m[Created]\0033[1;37m"
 
 clean:
-	@rm -f $(OBJ)
-	@echo "\0033[1;34m %.o 		\0033[0;31m[Delete]\0033[1;37m"
+	@rm -rf $(OBJ_DIR)
+	@echo "$(COLOR)Objects\t\t\0033[0;31m[Deleted]\0033[1;37m"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\0033[1;34m libft.a 	\0033[0;31m[Delete]\0033[1;37m"
+	@echo "$(COLOR)$(NAME)\t\t\0033[0;31m[Deleted]\0033[1;37m"
 
 re: fclean all
+
+norme:
+	norminette $(OBJ:%.o=./$(SRC_DIR)/%.c)
+
+.PHONY: all clean fclean re norme
