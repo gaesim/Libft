@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 20:20:37 by gsimeon           #+#    #+#             */
-/*   Updated: 2015/11/30 15:42:40 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/17 10:35:24 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (l && s[l] != (char)c)
 		l--;
 	if (s[l] == (char)c)
-		return ((char *)(s + l));
+		return ((char *)(unsigned long)(s + l));
 	else
 		return (NULL);
 }

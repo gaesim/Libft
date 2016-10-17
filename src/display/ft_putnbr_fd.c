@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 02:28:53 by gsimeon           #+#    #+#             */
-/*   Updated: 2015/12/03 02:59:59 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/17 09:55:57 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n < -9 || n > 9)
 		ft_putnbr_fd((n / 10) * s, fd);
-	ft_putchar_fd(n % 10 * s + '0', fd);
+	ft_putchar_fd((char)(n % 10 * s + '0'), fd);
 	s = 1;
 }
