@@ -18,12 +18,12 @@ LIST_DIR = list
 MATRIX_DIR = matrix
 MEMORY_DIR = memory
 OTHER_DIR = other
-# PRINTF_DIR = printf
+PRINTF_DIR = printf
 STRING_DIR = string
 
 ## Compilating Utilities
 
-FLAGS = -Wall -Wextra -Werror -Weverything
+FLAGS = -Wall -Wextra -Werror
 INC = $(INC_DIR:%=-I ./%)
 CC = clang $(FLAGS) $(INC)
 
@@ -83,10 +83,10 @@ OTHER_FT = ft_atoi_base \
 			ft_swap \
 			ft_isprint
 
-# PRINTF_FT = ft_printf \
-# 			pf_solve_flags \
-# 			pf_apply_flags \
-# 			pf_itoa
+ PRINTF_FT = ft_printf \
+ 			pf_solve_flags \
+ 			pf_apply_flags \
+ 			pf_itoa
 
 STRING_FT = ft_strlen \
 			ft_strdup \
@@ -125,25 +125,34 @@ STRING_FT = ft_strlen \
 			ft_strtoupper \
 			ft_input
 
-## List of Object Utilities
+## List of Utilities
 
-OBJ = $(DISPLAY_FT:%=$(DISPLAY_DIR)/%.o) \
-		$(INTEGER_FT:%=$(INTEGER_DIR)/%.o) \
-		$(LIST_FT:%=$(LIST_DIR)/%.o) \
-		$(MATRIX_FT:%=$(MATRIX_DIR)/%.o) \
-		$(MEMORY_FT:%=$(MEMORY_DIR)/%.o) \
-		$(OTHER_FT:%=$(OTHER_DIR)/%.o) \
-		$(PRINTF_FT:%=$(PRINTF_DIR)/%.o) \
-		$(STRING_FT:%=$(STRING_DIR)/%.o)
+OBJ = $(DISPLAY_FT:%=$(OBJ_DIR)/$(DISPLAY_DIR)/%.o) \
+		$(INTEGER_FT:%=$(OBJ_DIR)/$(INTEGER_DIR)/%.o) \
+		$(LIST_FT:%=$(OBJ_DIR)/$(LIST_DIR)/%.o) \
+		$(MATRIX_FT:%=$(OBJ_DIR)/$(MATRIX_DIR)/%.o) \
+		$(MEMORY_FT:%=$(OBJ_DIR)/$(MEMORY_DIR)/%.o) \
+		$(OTHER_FT:%=$(OBJ_DIR)/$(OTHER_DIR)/%.o) \
+		$(PRINTF_FT:%=$(OBJ_DIR)/$(PRINTF_DIR)/%.o) \
+		$(STRING_FT:%=$(OBJ_DIR)/$(STRING_DIR)/%.o)
 
-OBJ_DIRS = $(DISPLAY_DIR) \
-			$(INTEGER_DIR) \
-			$(LIST_DIR) \
-			$(MATRIX_DIR) \
-			$(MEMORY_DIR) \
-			$(OTHER_DIR) \
-			$(STRING_DIR)
-			# $(PRINTF_DIR)
+SRC = $(DISPLAY_FT:%=$(SRC_DIR)/$(DISPLAY_DIR)/%.c) \
+		$(INTEGER_FT:%=$(SRC_DIR)/$(INTEGER_DIR)/%.c) \
+		$(LIST_FT:%=$(SRC_DIR)/$(LIST_DIR)/%.c) \
+		$(MATRIX_FT:%=$(SRC_DIR)/$(MATRIX_DIR)/%.c) \
+		$(MEMORY_FT:%=$(SRC_DIR)/$(MEMORY_DIR)/%.c) \
+		$(OTHER_FT:%=$(SRC_DIR)/$(OTHER_DIR)/%.c) \
+		$(PRINTF_FT:%=$(SRC_DIR)/$(PRINTF_DIR)/%.c) \
+		$(STRING_FT:%=$(SRC_DIR)/$(STRING_DIR)/%.c)
+
+OBJ_DIRS = $(DISPLAY_DIR:%=$(OBJ_DIR)/%) \
+			$(INTEGER_DIR:%=$(OBJ_DIR)/%) \
+			$(LIST_DIR:%=$(OBJ_DIR)/%) \
+			$(MATRIX_DIR:%=$(OBJ_DIR)/%) \
+			$(MEMORY_DIR:%=$(OBJ_DIR)/%) \
+			$(OTHER_DIR:%=$(OBJ_DIR)/%) \
+			$(PRINTF_DIR:%=$(OBJ_DIR)/%) \
+			$(STRING_DIR:%=$(OBJ_DIR)/%)
 
 
 ## Rules of Makefile
@@ -151,17 +160,20 @@ OBJ_DIRS = $(DISPLAY_DIR) \
 all: $(NAME)
 	@echo "$(COLOR)Libft\t\t\0033[1;30m[All OK]\0033[1;37m"
 
-$(OBJ_DIRS:%=$(OBJ_DIR)/%):
+$(OBJ_DIRS):
 	@mkdir -p $@
 	@echo "$(COLOR)Creating    : \0033[0;32m$@\0033[1;37m"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIRS:%=$(OBJ_DIR)/%)
+$(SRC):
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) -c $< -o $@
 	@echo "$(COLOR)Compilating : \0033[0;32m$(@:$(OBJ_DIR)/%=%)\0033[1;37m"
 
-$(NAME): $(OBJ:%=$(OBJ_DIR)/%)
+$(NAME): $(OBJ_DIRS) $(SRC)
+	@$(MAKE) $(OBJ)
 	@echo "$(COLOR)Objects\t\t\0033[0;32m[Created]\0033[1;37m"
-	@ar rcs $@ $^
+	@ar rcs $@ $(OBJ)
 	@echo "$(COLOR)$(NAME)\t\t\0033[0;32m[Created]\0033[1;37m"
 
 clean:
@@ -175,6 +187,6 @@ fclean: clean
 re: fclean all
 
 norme:
-	norminette $(OBJ:%.o=./$(SRC_DIR)/%.c)
+	@norminette $(SRC)
 
 .PHONY: all clean fclean re norme

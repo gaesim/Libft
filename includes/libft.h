@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/10/17 10:30:45 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/21 14:53:47 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int					ft_gnl(int const fd, char **line);
 char				*ft_itoa(int n);
 int					ft_isdigit(int c);
 int					ft_isnumber(char *s);
-int					ft_ishexa(char *s);
+int					ft_ishexa(const char *s);
 int					ft_pwr(int n, int p);
 int					**ft_intboardset(size_t x, size_t y, int c);
 
@@ -111,10 +111,10 @@ int					ft_isprint(int c);
 **							PRINTF USAGE
 */
 
-// int					ft_printf(const char *str, ...);
-// int					pf_solve_flags(char **src, int *w, int *p, va_list *ap);
-// char				*pf_apply_flags(char **str, void *ptr, va_list *ap);
-// char				*pf_itoa(void *ptr, char output, int flags);
+int					ft_printf(const char *str, ...);
+int					pf_solve_flags(char **src, int *w, int *p, va_list *ap);
+char				*pf_apply_flags(char **str, void *ptr, va_list *ap);
+char				*pf_itoa(void *ptr, char output, int flags);
 
 /*
 **							STRINGS USAGE
@@ -146,7 +146,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
-char				**ft_boardset(int x, int y, char c);
+char				**ft_boardset(size_t x, size_t y, char c);
 int					ft_atoi(const char *str);
 int					ft_atoi_b(const char *str, int base);
 int					ft_toupper(int c);

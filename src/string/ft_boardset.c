@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_boardset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 02:01:04 by gsimeon           #+#    #+#             */
-/*   Updated: 2015/12/20 02:08:23 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/21 14:32:08 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char		**ft_boardset(int x, int y, char c)
+char		**ft_boardset(size_t x, size_t y, char c)
 {
 	char	**rslt;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
 	j = 0;
 	rslt = (char**)malloc((sizeof(char*) * y) + (x * y));
