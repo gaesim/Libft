@@ -6,16 +6,16 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 02:28:32 by gsimeon           #+#    #+#             */
-/*   Updated: 2015/12/07 01:53:46 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/21 14:29:18 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int		ft_words(char const *s, char c)
+static size_t	ft_words(char const *s, char c)
 {
-	int		w;
+	size_t	w;
 
 	w = 0;
 	while (*s)
@@ -31,7 +31,7 @@ static int		ft_words(char const *s, char c)
 
 char			**ft_strsplit(char const *s, char c)
 {
-	int		i;
+	size_t	i;
 	int		n;
 	char	**rslt;
 

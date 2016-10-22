@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstinser_sorted.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 16:28:49 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/10/17 10:16:33 by gsimeon          ###   ########.fr       */
+/*   Created: 2016/08/17 18:47:10 by gsimeon           #+#    #+#             */
+/*   Updated: 2016/09/02 01:28:30 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+int		ft_lstinser_sorted(t_list **lst, t_list *elem,
+		int (*f)(t_list *lst, t_list *elem))
 {
-	while (n--)
-	{
-		*((unsigned char *)dst) = *((const unsigned char *)src);
-		dst = (char*)dst + 1;
-		src = (const char*)src + 1;
-		if (*((const unsigned char *)src - 1) == (unsigned char)c)
-			return (dst);
-	}
-	return (NULL);
+	if (*lst && *lst != elem && f(*lst, elem))
+		return (ft_lstinser_sorted(&((*lst)->next), elem, f));
+	if (elem && elem != *lst)
+		elem->next = *lst;
+	*lst = elem;
+	return (0);
 }

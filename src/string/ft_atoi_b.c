@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 00:13:47 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/05/02 01:12:47 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/21 14:32:33 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_atoi_b(const char *str, int base)
 			str++;
 		if (((s = (*str == '-' ? -1 : 1)) == -1 || *str == '+') && base == 10)
 			str++;
-		if (base == 16 && (h = ft_ishexa((char *)str)))
+		if (base == 16 && (h = ft_ishexa((const char *)str)))
 			str += 2;
 		h -= 2;
 		while (ft_isdigit(*str) || h-- > 0)

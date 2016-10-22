@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 01:54:13 by gsimeon           #+#    #+#             */
-/*   Updated: 2015/12/03 01:54:17 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/17 02:36:14 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr(const char *s)
 {
-	ft_putstr_fd(s, 1);
+	write(1, s, ft_strlen(s));
 }

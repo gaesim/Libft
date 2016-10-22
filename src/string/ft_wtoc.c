@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:40:41 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/02/24 09:12:38 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/21 14:49:04 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_wtoc(wchar_t w)
 {
-	char	str[5];
-	int		n;
+	unsigned char	str[5];
+	int				n;
 
 	n = 3;
 	ft_bzero((void*)str, 5);
@@ -36,5 +36,5 @@ char	*ft_wtoc(wchar_t w)
 		str[n--] = (unsigned char)((w >> 12 & 63) | 128);
 		str[n] = (unsigned char)((w >> 18 & 7) | 240);
 	}
-	return (ft_strdup(&str[n]));
+	return (ft_strdup((const char*)&str[n]));
 }

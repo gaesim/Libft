@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsimeon <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 18:58:27 by gsimeon           #+#    #+#             */
-/*   Updated: 2015/12/15 21:48:25 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/10/17 10:17:01 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len--)
 		{
-			*((char *)dst + len) = *((char *)src + len);
+			*((char *)dst + len) = *((const char *)src + len);
 		}
 	}
 	return (dst);
