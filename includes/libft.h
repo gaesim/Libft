@@ -6,7 +6,7 @@
 /*   By: gsimeon <gsimeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:01:19 by gsimeon           #+#    #+#             */
-/*   Updated: 2016/10/21 14:53:47 by gsimeon          ###   ########.fr       */
+/*   Updated: 2016/11/25 02:36:36 by gsimeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,6 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				**ft_boardset(size_t x, size_t y, char c);
 int					ft_atoi(const char *str);
-int					ft_atoi_b(const char *str, int base);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isalpha(int c);

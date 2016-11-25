@@ -116,7 +116,6 @@ STRING_FT = ft_strlen \
 			ft_strsplit \
 			ft_boardset \
 			ft_atoi \
-			ft_atoi_b \
 			ft_toupper \
 			ft_tolower \
 			ft_isalpha \
