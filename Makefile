@@ -179,6 +179,6 @@ fclean: clean
 re: fclean all
 
 norme:
-	@norminette $(SRC)
+	@norminette $(SRC) $(INC_DIR)/
 
 .PHONY: all clean fclean re norme
