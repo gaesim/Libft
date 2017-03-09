@@ -83,7 +83,7 @@ OTHER_FT = ft_atoi_base \
 			ft_swap \
 			ft_isprint
 
- PRINTF_FT = ft_printf \
+PRINTF_FT = ft_printf \
  			pf_solve_flags \
  			pf_apply_flags \
  			pf_itoa
@@ -116,7 +116,6 @@ STRING_FT = ft_strlen \
 			ft_strsplit \
 			ft_boardset \
 			ft_atoi \
-			ft_atoi_b \
 			ft_toupper \
 			ft_tolower \
 			ft_isalpha \
@@ -127,15 +126,6 @@ STRING_FT = ft_strlen \
 
 ## List of Utilities
 
-OBJ = $(DISPLAY_FT:%=$(OBJ_DIR)/$(DISPLAY_DIR)/%.o) \
-		$(INTEGER_FT:%=$(OBJ_DIR)/$(INTEGER_DIR)/%.o) \
-		$(LIST_FT:%=$(OBJ_DIR)/$(LIST_DIR)/%.o) \
-		$(MATRIX_FT:%=$(OBJ_DIR)/$(MATRIX_DIR)/%.o) \
-		$(MEMORY_FT:%=$(OBJ_DIR)/$(MEMORY_DIR)/%.o) \
-		$(OTHER_FT:%=$(OBJ_DIR)/$(OTHER_DIR)/%.o) \
-		$(PRINTF_FT:%=$(OBJ_DIR)/$(PRINTF_DIR)/%.o) \
-		$(STRING_FT:%=$(OBJ_DIR)/$(STRING_DIR)/%.o)
-
 SRC = $(DISPLAY_FT:%=$(SRC_DIR)/$(DISPLAY_DIR)/%.c) \
 		$(INTEGER_FT:%=$(SRC_DIR)/$(INTEGER_DIR)/%.c) \
 		$(LIST_FT:%=$(SRC_DIR)/$(LIST_DIR)/%.c) \
@@ -144,6 +134,8 @@ SRC = $(DISPLAY_FT:%=$(SRC_DIR)/$(DISPLAY_DIR)/%.c) \
 		$(OTHER_FT:%=$(SRC_DIR)/$(OTHER_DIR)/%.c) \
 		$(PRINTF_FT:%=$(SRC_DIR)/$(PRINTF_DIR)/%.c) \
 		$(STRING_FT:%=$(SRC_DIR)/$(STRING_DIR)/%.c)
+
+OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
 OBJ_DIRS = $(DISPLAY_DIR:%=$(OBJ_DIR)/%) \
 			$(INTEGER_DIR:%=$(OBJ_DIR)/%) \
